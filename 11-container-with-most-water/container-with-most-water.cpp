@@ -3,17 +3,12 @@ public:
     int maxArea(vector<int>& height) {
         int i = 0;
         int j = height.size() - 1;
-
         int maxArea = 0;
 
-        while (i != j) {
-            int h = height[i] < height[j] ? height[i] : height[j];
+        while (i < j) {
+            int h = min(height[i], height[j]);
             int w = j - i;
-
-            int currArea = h * w;
-
-            if (currArea > maxArea)
-                maxArea = currArea;
+            maxArea = max(maxArea, h * w);
 
             if (height[i] > height[j])
                 j--;
