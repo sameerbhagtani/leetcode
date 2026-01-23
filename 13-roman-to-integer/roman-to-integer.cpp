@@ -9,14 +9,17 @@ public:
         int ans = 0;
         for (int i = 0; i < s.size(); i++) {
             int value = romanNums[s[i]];
-            int nextValue = romanNums[s[i + 1]];
 
-            if (i < s.size() - 1 && value < nextValue) {
-                ans += (nextValue - value);
-                i++;
-            } else {
-                ans += value;
+            if (i < s.size() - 1) {
+                int nextValue = romanNums[s[i + 1]];
+                if (value < nextValue) {
+                    ans += (nextValue - value);
+                    i++;
+                    continue;
+                }
             }
+
+            ans += value;
         }
 
         return ans;
