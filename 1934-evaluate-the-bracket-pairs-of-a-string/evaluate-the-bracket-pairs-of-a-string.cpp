@@ -14,11 +14,8 @@ public:
             if (s[i] == '(') {
                 bracketStart = i;
             } else if (s[i] == ')') {
-                int start = bracketStart + 1;
-                int end = i - 1;
-                string toAppend = s.substr(bracketStart + 1, end - start + 1);
-
-                cout << toAppend << "\n";
+                string toAppend =
+                    s.substr(bracketStart + 1, i - bracketStart - 1);
 
                 if (knowledgeMap.find(toAppend) != knowledgeMap.end()) {
                     ans.append(knowledgeMap[toAppend]);
