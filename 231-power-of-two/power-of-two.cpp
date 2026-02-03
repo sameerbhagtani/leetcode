@@ -4,8 +4,7 @@ public:
         if (n <= 0)
             return false;
 
-        // this is the largest power of 3 in a 32 bit signed integer
-        // thus if n is a power of 3, it must divide this
-        return 1073741824 % n == 0;
+        // a number is a power of two if it has exactly one '1' bit in binary form
+        return (n & (n-1)) == 0;
     }
 };
