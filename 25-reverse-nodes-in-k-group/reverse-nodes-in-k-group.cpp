@@ -21,11 +21,7 @@ public:
             curr = curr->next;
         }
 
-        if (k > length)
-            return head;
-
         curr = head;
-
         ListNode* prev = nullptr;
 
         ListNode* toReturn = nullptr;
@@ -33,7 +29,6 @@ public:
         ListNode* nextConnectingNode = nullptr;
 
         int i = 0;
-
         while (curr) {
             ListNode* nextNode = curr->next;
             curr->next = prev;
@@ -41,6 +36,7 @@ public:
             curr = nextNode;
 
             i++;
+
             if (i % k == 1) {
                 if (connectingNode == nullptr) {
                     connectingNode = prev;
