@@ -7,13 +7,12 @@ public:
         while (left < right) {
             int sum = numbers[left] + numbers[right];
 
-            if (sum == target) {
+            if (sum == target)
                 return {left + 1, right + 1};
-            } else if (sum < target) {
+            else if (sum < target)
                 left++;
-            } else {
+            else
                 right--;
-            }
         }
 
         return {-1, -1};
